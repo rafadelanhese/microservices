@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  config-server:
+    container_name: config-server
+    build:
+      context: ./config-server
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      SPRING_CLOUD_CONFIG_SERVER_GIT_URI: https://github.com/rafadelanhese/microservices-configs
+    ports:
+      - "9090:9090"
+  eureka-server:
+    container_name: eureka-server
+    build:
+      context: ./eureka-server
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - config-server
+    environment:
+      EUREKA_SERVER: http://localhost:8761/eureka
+      SPRING_CLOUD_CONFIG_URI: http://config-server:9090
+    ports:
+      - "8761:8761"
