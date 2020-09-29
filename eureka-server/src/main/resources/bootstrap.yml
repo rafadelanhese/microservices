@@ -4,6 +4,8 @@ spring:
   cloud:
     enabled: true
     config:
+      discovery:
+        serviceId: eureka-server
       uri: ${SPRING_CLOUD_CONFIG_URI}
       failFast: true
       retry:
