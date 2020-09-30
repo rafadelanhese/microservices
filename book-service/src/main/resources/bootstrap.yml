@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: book-service
+  cloud:
+    enabled: true
+    config:
+      uri: ${SPRING_CLOUD_CONFIG_URI}
+      failFast: true
+      retry:
+        maxAttempts: 20
