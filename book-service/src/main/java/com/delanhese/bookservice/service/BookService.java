@@ -17,9 +17,6 @@ public class BookService {
     public List<Book> findAll(){
         return bookRepository.findAll();
     }
-    public void save(Book book){
-        bookRepository.save(book);
-    }
 
     public Book findByAuthor(String author){
         return bookRepository.findByAuthor(author);
@@ -27,5 +24,21 @@ public class BookService {
 
     public List<Book> findByTitle(String title){
         return bookRepository.findByTitle(title);
+    }
+
+    public void save(Book book){
+        bookRepository.save(book);
+    }
+
+    public void update(Book book){
+        bookRepository.save(book);
+    }
+
+    public void deleteByID(String id){
+        bookRepository.deleteById(id);
+    }
+
+    public void deleteAll(){
+        bookRepository.deleteAll();
     }
 }
