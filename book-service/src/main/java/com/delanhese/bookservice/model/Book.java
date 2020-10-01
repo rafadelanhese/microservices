@@ -13,6 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Book {
 
     @Id
+    @Getter
     private String idBook;
 
     @Getter @Setter
