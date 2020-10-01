@@ -21,19 +21,32 @@ public class BookController {
     }
 
     @GetMapping("/{author}")
-    public Book findByAuthor(@PathVariable String author){
+    public Book findByAuthor(@PathVariable("author") String author){
         return bookService.findByAuthor(author);
     }
 
     @GetMapping("/{title}")
-    public List<Book> findByTitle(@PathVariable String tile){
-        return bookService.findByTitle(tile);
+    public List<Book> findByTitle(@PathVariable("title") String title){
+        return bookService.findByTitle(title);
     }
 
     @PostMapping("")
-    public void findByTitle(@RequestBody Book book){
+    public void save(@RequestBody Book book){
         bookService.save(book);
     }
 
+    @PutMapping("")
+    public void update(@RequestBody Book book){
+        bookService.update(book);
+    }
 
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable String id){
+        bookService.deleteByID(id);
+    }
+
+    @DeleteMapping("")
+    public void deleteAll(){
+        bookService.deleteAll();
+    }
 }
