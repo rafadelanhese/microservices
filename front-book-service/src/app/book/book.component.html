@@ -1,0 +1,24 @@
+<div>
+    <h2>Books</h2>
+    <p>List of book</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Author</th>
+                <th>Title</th>
+                <th>Atualizar</th>
+                <th>Excluir</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of books">
+                <td>{{ book.idBook }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.title }}</td>
+                <td><button type="button" class="btn btn-info">Atualizar</button></td>
+                <td><button type="button" class="btn btn-danger">Excluir</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
